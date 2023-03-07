@@ -8,6 +8,11 @@ Class Action {
    	include 'db_connect.php';
     
     $this->db = $conn;
+		
+		
+		
+		
+		
 	}
 	function __destruct() {
 	    $this->db->close();
