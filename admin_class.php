@@ -16,7 +16,7 @@ Class Action {
 
 	function login(){
 		extract($_POST);
-		$qry = $this->db->query("SELECT * FROM users where username = '".$username."' and password = '".$password."' ");
+		$qry = $this->db->query("SELECT * FROM voters where username = '".$username."' and password = '".$password."' ");
 		if($qry->num_rows > 0){
 			foreach ($qry->fetch_array() as $key => $value) {
 				if($key != 'passwors' && !is_numeric($key))
@@ -55,7 +55,7 @@ Class Action {
 						$data = " name = '".$file[0]."' ";
 						$data .= ", folder_id = '".$folder_id."' ";
 						$data .= ", description = '".$description."' ";
-						$data .= ", user_id = '".$_SESSION['login_id']."' ";
+						$data .= ", voter_id = '".$_SESSION['login_id']."' ";
 						$data .= ", file_type = '".$file[1]."' ";
 						$data .= ", file_path = '".$fname."' ";
 						if(isset($is_public) && $is_public == 'on')
@@ -89,9 +89,9 @@ Class Action {
 		$data .= ", password = '$password' ";
 		$data .= ", type = '$type' ";
 		if(empty($id)){
-			$save = $this->db->query("INSERT INTO users set ".$data);
+			$save = $this->db->query("INSERT INTO voters set ".$data);
 		}else{
-			$save = $this->db->query("UPDATE users set ".$data." where id = ".$id);
+			$save = $this->db->query("UPDATE voters set ".$data." where id = ".$id);
 		}
 		if($save){
 			return 1;
