@@ -66,7 +66,7 @@
 <script>
 	
 $('#new_user').click(function(){
-	uni_modal('New User','manage_user.php')
+	uni_modal('New Voter','manage_user.php')
 })
 $('.edit_user').click(function(){
 	uni_modal('Edit User','manage_user.php?id='+$(this).attr('data-id'))
